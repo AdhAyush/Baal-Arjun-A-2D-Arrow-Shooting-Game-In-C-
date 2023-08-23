@@ -55,7 +55,7 @@ public:
 	void spawn(IntRect arena, Vector2f resolution, int tileSize);
 
 	// Handle the player getting hit by a zombie
-	void hit(Time timeHit);
+	void hit();
 
 	// How long ago was the player last hit
 	Time getLastHitTime();

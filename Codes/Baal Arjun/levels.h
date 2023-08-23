@@ -112,10 +112,6 @@ protected:
 	// sprite for the background
 	sf::Sprite s;
 
-	//the interval in which enemy  shoot the arrow towards the player
-	int enemyShootInterval  = 20 ;
-	int timeSinceLastShoot = 0;
-
 	// Health bar
 	RectangleShape healthBar;
 
@@ -158,6 +154,7 @@ protected:
 	//arrow reload variable
 	SoundBuffer arrowReloadBuffer;
 	Sound arrowReload;
+
 
 public:
 	Levels();

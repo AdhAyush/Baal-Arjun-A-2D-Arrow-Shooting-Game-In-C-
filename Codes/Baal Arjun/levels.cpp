@@ -491,7 +491,7 @@ int Levels::run(int num)
 						hit.play();
 						// Stop the bullet
 						enemyArrow[i].stop();
-						player.hit(dt);
+						player.hit();
 
 
 					}
@@ -560,6 +560,7 @@ int Levels::run(int num)
 			window.draw(background, &textureBackground);
 		
 			//Draw Blood Splash on th ground 
+				
 			for (int i = 0; i < numEnemies; i++) {
 				if (!enemy[i].isAlive()) {
 					window.draw(enemy[i].getSprite());

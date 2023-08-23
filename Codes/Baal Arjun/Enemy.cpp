@@ -192,7 +192,6 @@ void Enemy::setSpeed(int s) {
 	m_Speed = s;
 }
 
-
 void Enemy::operator++(int) {
 	timeSinceLastShoot++;
 }

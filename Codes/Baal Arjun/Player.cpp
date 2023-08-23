@@ -52,7 +52,7 @@ Time Player::getLastHitTime()
 }
 
 
-void Player::hit(Time timeHit)
+void Player::hit()
 {
 	m_Health -= 10;
 

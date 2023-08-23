@@ -18,6 +18,7 @@ Arrow::Arrow()
 
 }
 
+// linear shoot
 void Arrow::shoot(float startX, float startY) {
 	
 
@@ -34,6 +35,7 @@ void Arrow::shoot(float startX, float startY) {
 }
 
 //overloading fire arrow
+/* 
 void Arrow::shoot(float startX, float startY, int f) {
 
 
@@ -48,6 +50,8 @@ void Arrow::shoot(float startX, float startY, int f) {
 	m_ArrowShape1.setRotation(180);
 
 }
+
+*/
 
 void Arrow::shoot(float startX, float startY,
 	float targetX, float targetY)

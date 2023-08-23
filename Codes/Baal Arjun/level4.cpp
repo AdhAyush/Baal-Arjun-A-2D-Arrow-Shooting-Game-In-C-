@@ -55,6 +55,7 @@ public:
 		for (int i = 0; i < numEnemies; i++) {
 			
 			if (enemy[i].isAlive()) {
+				
 				enemy[i]++;
 
 				if (i < 3) {

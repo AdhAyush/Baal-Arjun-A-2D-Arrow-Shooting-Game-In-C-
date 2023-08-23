@@ -30,7 +30,7 @@ Chapters::Chapters()
 	font.loadFromFile("fonts/times.ttf");
 
 	//1st 2 levels are unlocked so the 2 values are set 1 and others are set to 1
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 11; i++)
 	{
 		if (i == 0 || i == 1)
 		{

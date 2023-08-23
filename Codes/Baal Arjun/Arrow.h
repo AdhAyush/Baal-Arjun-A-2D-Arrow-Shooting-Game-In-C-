@@ -69,7 +69,7 @@ public:
 
 
 	// overloaded function
-	void shoot(float startX, float startY, int f);
+	//void shoot(float startX, float startY, int f);
 	void shoot(float startX, float startY, float targetX, float targetY, int f);
 	FloatRect getPosition(int f);
 	Sprite getSprite(int f);
