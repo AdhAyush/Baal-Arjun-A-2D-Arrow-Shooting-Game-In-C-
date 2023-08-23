@@ -3,9 +3,6 @@
 
 
 void shootLinear(Enemy& enemy, int numEnemies, int& enemyCurrentArrow, Arrow* enemyArrow) {
-	enemyArrow[enemyCurrentArrow].setArrowspeed(300);
-
-	std::cout << "Shoot Linear"<<std::endl;
 
 	enemyArrow[enemyCurrentArrow].shoot(
 		enemy.getCenter().x, enemy.getCenter().y);
@@ -21,10 +18,7 @@ void shootLinear(Enemy& enemy, int numEnemies, int& enemyCurrentArrow, Arrow* en
 }
 
 void shootTowardsPlayer(Enemy& enemy, int numEnemies, int& enemyCurrentArrow, Arrow* enemyArrow, Player player) {
-	enemyArrow[enemyCurrentArrow].setArrowspeed(500);
-
-	std::cout << " Shoot towards player"<<std::endl;
-
+	
 	enemyArrow[enemyCurrentArrow].shoot(
 		enemy.getCenter().x, enemy.getCenter().y,
 		player.getCenter().x, player.getCenter().y);

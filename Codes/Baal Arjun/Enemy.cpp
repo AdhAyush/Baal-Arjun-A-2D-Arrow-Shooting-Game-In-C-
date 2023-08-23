@@ -5,7 +5,7 @@
 using namespace std;
 
 
-void Enemy::spawn(float startX, float startY, int type, int seed, int timeInterval)
+void Enemy::spawn(float startX, float startY, int type, int timeInterval)
 {
 	enemyShootInterval = timeInterval;
 
@@ -44,16 +44,7 @@ void Enemy::spawn(float startX, float startY, int type, int seed, int timeInterv
 	default:
 		break;
 	}
-/*
-	// Modify the speed to make the Enemy unique
-	// Every Enemy is unique. Create a speed modifier
-	srand((int)time(0) * seed);
-	// Somewhere between 80 an 100
-	float modifier = (rand() % MAX_VARRIANCE) + OFFSET;
-	// Express as a fraction of 1
-	modifier /= 100; // Now equals between .7 and 1
-	m_Speed *= modifier;
-*/
+
 	m_Position.x = startX;
 	m_Position.y = startY;
 

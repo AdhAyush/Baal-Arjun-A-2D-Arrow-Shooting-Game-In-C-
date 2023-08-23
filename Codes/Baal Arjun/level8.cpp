@@ -14,9 +14,6 @@ using namespace sf;
 class level8 :public Levels {
 private:
 
-	sf::Sprite s;
-	sf::Sprite s_load;
-
 public:
 	level8() {
 		textureBackground.loadFromFile("C:\\Users\\ayush\\OneDrive\\Desktop\\Baal arjun\\Codes\\Baal Arjun\\graphics\\grass3.png");
@@ -27,22 +24,22 @@ public:
 
 	void spawn(Enemy* enemy, int numEnemiesAlive, Vector2f resolution) override {
 
-		enemy[0].spawn(resolution.x / 2 + 150, resolution.y / 6, 0, 1, 200);
-		enemy[1].spawn(resolution.x / 2 + 120, resolution.y / 6 * 2, 0, 1, 200);
-		enemy[2].spawn(resolution.x / 2 + 100, resolution.y / 6 * 3, 0, 1, 200);
-		enemy[3].spawn(resolution.x / 2 + 120, resolution.y / 6 * 4, 0, 1, 200);
-		enemy[4].spawn(resolution.x / 2 + 150, resolution.y / 6 * 5, 0, 1, 200);
+		enemy[0].spawn(resolution.x / 2 + 150, resolution.y / 6, 0, 200);
+		enemy[1].spawn(resolution.x / 2 + 120, resolution.y / 6 * 2, 0, 200);
+		enemy[2].spawn(resolution.x / 2 + 100, resolution.y / 6 * 3, 0, 200);
+		enemy[3].spawn(resolution.x / 2 + 120, resolution.y / 6 * 4, 0, 200);
+		enemy[4].spawn(resolution.x / 2 + 150, resolution.y / 6 * 5, 0, 200);
 
-		enemy[5].spawn(resolution.x / 2 + 200, resolution.y / 4 * 1, 0, 1, 200);
-		enemy[6].spawn(resolution.x / 2 + 170, resolution.y / 4 * 2 + 50, 0, 1, 200);
-		enemy[7].spawn(resolution.x / 2 + 200, resolution.y / 4 * 3, 0, 1, 200);
+		enemy[5].spawn(resolution.x / 2 + 200, resolution.y / 4 * 1, 0, 200);
+		enemy[6].spawn(resolution.x / 2 + 170, resolution.y / 4 * 2 + 50, 0, 200);
+		enemy[7].spawn(resolution.x / 2 + 200, resolution.y / 4 * 3, 0, 200);
 
-		enemy[8].spawn(resolution.x / 2 + 300, resolution.y / 4, 1, 1, 300);
-		enemy[9].spawn(resolution.x / 2 + 300, resolution.y / 4 * 2, 1, 1, 300);
-		enemy[10].spawn(resolution.x / 2 + 300, resolution.y / 4 * 3, 1, 1,300);
+		enemy[8].spawn(resolution.x / 2 + 300, resolution.y / 4, 1, 300);
+		enemy[9].spawn(resolution.x / 2 + 300, resolution.y / 4 * 2, 1, 300);
+		enemy[10].spawn(resolution.x / 2 + 300, resolution.y / 4 * 3, 1,300);
 
-		enemy[11].spawn(resolution.x / 2 + 400, resolution.y / 3 * 1, 2, 1, 300);
-		enemy[12].spawn(resolution.x / 2 + 400, resolution.y / 3 * 2, 2, 1, 300);
+		enemy[11].spawn(resolution.x / 2 + 400, resolution.y / 3 * 1, 2, 300);
+		enemy[12].spawn(resolution.x / 2 + 400, resolution.y / 3 * 2, 2, 300);
 
 	}
 
@@ -95,6 +92,8 @@ public:
 
 				enemy[i]++;
 				if (enemy[i].lastShootGreaterThanInterval()) {
+
+					enemyArrow[enemyCurrentArrow].setArrowspeed(300);
 					shootLinear(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow);
 				}
 			}
@@ -106,6 +105,8 @@ public:
 
 				enemy[i]++;
 				if (enemy[i].lastShootGreaterThanInterval()) {
+
+					enemyArrow[enemyCurrentArrow].setArrowspeed(500);
 					shootTowardsPlayer(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow, player);
 				}
 			}
@@ -115,7 +116,7 @@ public:
 	}
 
 
-	int run(int num)
+	int run()
 	{
 		enemy = new Enemy[13];
 		enemyHealth = new RectangleShape[13];

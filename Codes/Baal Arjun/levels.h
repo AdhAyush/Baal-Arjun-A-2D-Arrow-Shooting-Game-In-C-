@@ -109,13 +109,8 @@ protected:
 	//Sudarshan
 	Text totalSudarshanText;
 
-
+	// sprite for the background
 	sf::Sprite s;
-	sf::Sprite s_load;
-
-	// unlock the lock
-	bool lockStatus;
-
 
 	//the interval in which enemy  shoot the arrow towards the player
 	int enemyShootInterval  = 20 ;
@@ -133,15 +128,7 @@ protected:
 	Text gameOverText;
 	Text gameWonText;
 	Text blankText;
-	// Health of enemy
-	//  RectangleShape enemyHealth[numEnemies];
 
-
-	//variable to be written in each level class
-	//  numEnemiesAlive = numEnemies;
-	// num of enemies
-	//   RectangleShape enemyHealth[numEnemies];
-	//     Enemy enemy[numEnemies];	
 
 	Enemy* enemy;
 	RectangleShape* enemyHealth;
@@ -176,14 +163,11 @@ public:
 	Levels();
 
 	virtual ~Levels() {}
-	virtual int run(int num);
-
-	void setLockStatus(bool a);
-	bool getLockStatus();
+	int run(int num);
 
 	virtual void spawn(Enemy* enemy, int numEnemiesAlive, Vector2f resolution);
 	virtual void update(Enemy* enemy, RectangleShape* enemyHealth, int numEnemies, Vector2f resolution, Vector2f playerPosition, float elapsedTime);
 	virtual void enemyShoot(Enemy* enemy, int numEnemies, int& enemyCurrentArrow, Arrow* enemyArrow, Player player);
-	
+	virtual int run() = 0;
 
 };

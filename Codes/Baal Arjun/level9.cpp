@@ -13,10 +13,6 @@ using namespace sf;
 
 class level9 :public Levels {
 private:
-	const int numEnemies = 3;
-	int numEnemiesAlive = numEnemies;
-	sf::Sprite s;
-	sf::Sprite s_load;
 
 public:
 	level9() {
@@ -28,27 +24,27 @@ public:
 
 	void spawn(Enemy* enemy, int numEnemiesAlive, Vector2f resolution) override {
 
-		enemy[0].spawn(resolution.x / 2 + 200, resolution.y / 7, 0, 1, 100);
-		enemy[1].spawn(resolution.x / 2 + 170, resolution.y / 7 * 2, 0, 1, 100);
-		enemy[2].spawn(resolution.x / 2 + 150, resolution.y / 7 * 3, 0, 1, 100);
-		enemy[3].spawn(resolution.x / 2 + 150, resolution.y / 7 * 4, 0, 1, 100);
-		enemy[4].spawn(resolution.x / 2 + 170, resolution.y / 7 * 5, 0, 1, 100);
-		enemy[5].spawn(resolution.x / 2 + 200, resolution.y / 7 * 6, 0, 1, 100);
+		enemy[0].spawn(resolution.x / 2 + 200, resolution.y / 7, 0, 100);
+		enemy[1].spawn(resolution.x / 2 + 170, resolution.y / 7 * 2, 0, 100);
+		enemy[2].spawn(resolution.x / 2 + 150, resolution.y / 7 * 3, 0, 100);
+		enemy[3].spawn(resolution.x / 2 + 150, resolution.y / 7 * 4, 0, 100);
+		enemy[4].spawn(resolution.x / 2 + 170, resolution.y / 7 * 5, 0, 100);
+		enemy[5].spawn(resolution.x / 2 + 200, resolution.y / 7 * 6, 0, 100);
 		
-		enemy[6].spawn(resolution.x / 2 + 220, resolution.y / 6 * 1, 0, 1, 100);
-		enemy[7].spawn(resolution.x / 2 + 200, resolution.y / 6 * 2, 0, 1, 100);
-		enemy[8].spawn(resolution.x / 2 + 180, resolution.y / 6 * 3, 0, 1, 100);
-		enemy[9].spawn(resolution.x / 2 + 200, resolution.y / 6 * 4, 0, 1, 100);
-		enemy[10].spawn(resolution.x / 2 + 220, resolution.y / 6 * 5, 0, 1, 100);
+		enemy[6].spawn(resolution.x / 2 + 220, resolution.y / 6 * 1, 0, 100);
+		enemy[7].spawn(resolution.x / 2 + 200, resolution.y / 6 * 2, 0, 100);
+		enemy[8].spawn(resolution.x / 2 + 180, resolution.y / 6 * 3, 0, 100);
+		enemy[9].spawn(resolution.x / 2 + 200, resolution.y / 6 * 4, 0, 100);
+		enemy[10].spawn(resolution.x / 2 + 220, resolution.y / 6 * 5, 0, 100);
 
-		enemy[11].spawn(resolution.x / 2 + 250, resolution.y / 5 * 1, 1, 1, 100);
-		enemy[12].spawn(resolution.x / 2 + 250, resolution.y / 5 * 2, 1, 1, 100);
-		enemy[13].spawn(resolution.x / 2 + 250, resolution.y / 5 * 3, 1, 1, 100);
-		enemy[14].spawn(resolution.x / 2 + 250, resolution.y / 5 * 4, 1, 1, 100);
+		enemy[11].spawn(resolution.x / 2 + 250, resolution.y / 5 * 1, 1, 100);
+		enemy[12].spawn(resolution.x / 2 + 250, resolution.y / 5 * 2, 1, 100);
+		enemy[13].spawn(resolution.x / 2 + 250, resolution.y / 5 * 3, 1, 100);
+		enemy[14].spawn(resolution.x / 2 + 250, resolution.y / 5 * 4, 1, 100);
 
-		enemy[15].spawn(resolution.x / 2 + 330, resolution.y / 4 * 1, 2, 1, 100);
-		enemy[16].spawn(resolution.x / 2 + 330, resolution.y / 4 * 2, 2, 1, 100);
-		enemy[17].spawn(resolution.x / 2 + 330, resolution.y / 4 * 3, 2, 1, 100);
+		enemy[15].spawn(resolution.x / 2 + 330, resolution.y / 4 * 1, 2, 100);
+		enemy[16].spawn(resolution.x / 2 + 330, resolution.y / 4 * 2, 2, 100);
+		enemy[17].spawn(resolution.x / 2 + 330, resolution.y / 4 * 3, 2, 100);
 	}
 
 
@@ -96,6 +92,8 @@ public:
 
 				enemy[i]++;
 				if (enemy[i].lastShootGreaterThanInterval()) {
+
+					enemyArrow[enemyCurrentArrow].setArrowspeed(300);
 					shootLinear(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow);
 				}
 			}
@@ -107,6 +105,8 @@ public:
 			if (enemy[i].isAlive()) {
 				enemy[i]++;
 				if (enemy[i].lastShootGreaterThanInterval()) {
+
+					enemyArrow[enemyCurrentArrow].setArrowspeed(500);
 					shootTowardsPlayer(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow, player);
 				}
 			}
@@ -116,7 +116,7 @@ public:
 	}
 
 
-	int run(int num)
+	int run()
 	{
 		enemy = new Enemy[18];
 		enemyHealth = new RectangleShape[18];

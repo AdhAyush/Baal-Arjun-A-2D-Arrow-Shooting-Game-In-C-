@@ -13,11 +13,6 @@ using namespace sf;
 
 class level4 :public Levels {
 private:
-	const int numEnemies = 3;
-	int numEnemiesAlive = numEnemies;
-
-	sf::Sprite s;
-	sf::Sprite s_load;
 
 public:
 	level4() {
@@ -27,14 +22,14 @@ public:
 	~level4() {}
 	void spawn(Enemy* enemy, int numEnemiesAlive, Vector2f resolution) override {
 
-		enemy[0].spawn(resolution.x / 2 + 200, resolution.y / 4, 0, 1, 100);
-		enemy[1].spawn(resolution.x / 2 + 100, resolution.y / 4 * 2, 0, 1, 100);
-		enemy[2].spawn(resolution.x / 2 + 200, resolution.y / 4 * 3, 0, 1, 100);
+		enemy[0].spawn(resolution.x / 2 + 200, resolution.y / 4, 0, 100);
+		enemy[1].spawn(resolution.x / 2 + 100, resolution.y / 4 * 2, 0, 100);
+		enemy[2].spawn(resolution.x / 2 + 200, resolution.y / 4 * 3, 0, 100);
 
-		enemy[3].spawn(resolution.x / 2 + 400, resolution.y / 2 - 100, 1, 1, 100);
-		enemy[4].spawn(resolution.x / 2 + 400, resolution.y / 2 + 100, 1, 1, 100);
+		enemy[3].spawn(resolution.x / 2 + 400, resolution.y / 2 - 100, 1, 100);
+		enemy[4].spawn(resolution.x / 2 + 400, resolution.y / 2 + 100, 1, 100);
 
-		enemy[5].spawn(resolution.x / 2 + 600, resolution.y / 2, 2, 1, 100);
+		enemy[5].spawn(resolution.x / 2 + 600, resolution.y / 2, 2, 100);
 
 	}
 
@@ -65,12 +60,16 @@ public:
 				if (i < 3) {
 
 					if (enemy[i].lastShootGreaterThanInterval()) {
+
+						enemyArrow[enemyCurrentArrow].setArrowspeed(300);
 						shootLinear(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow);
 					}
 				}
 
 				else {
 					if (enemy[i].lastShootGreaterThanInterval()) {
+
+						enemyArrow[enemyCurrentArrow].setArrowspeed(500);
 						shootTowardsPlayer(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow, player);
 					}
 
@@ -83,13 +82,13 @@ public:
 
 	
 
-	int run(int num)
+	int run()
 	{
-		enemy = new Enemy[num];
-		enemyHealth = new RectangleShape[num];
+		enemy = new Enemy[6];
+		enemyHealth = new RectangleShape[6];
 
 		int temp;
-		temp = Levels::run(num);
+		temp = Levels::run(6);
 		return temp;
 	}
 };

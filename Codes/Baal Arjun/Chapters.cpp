@@ -201,7 +201,7 @@ int Chapters::chapter_select()
 
 					if (unlock_level[0] == 1) {
 						yada.stop();
-						levl1 = lvl[0]->run(1);
+						levl1 = lvl[0]->run();
 						delete(lvl[0]);
 						lvl[0] = new level1;
 
@@ -263,7 +263,7 @@ int Chapters::chapter_select()
 					int levl2 = 1;
 					if (unlock_level[1] == 1) {
 						yada.stop();
-						levl2 = lvl[1]->run(6);
+						levl2 = lvl[1]->run();
 						delete(lvl[1]);
 						lvl[1] = new level2;
 						yada.play();
@@ -301,7 +301,7 @@ int Chapters::chapter_select()
 
 					if (unlock_level[2] == 1) {
 						yada.stop();
-						levl3 = lvl[2]->run(5);
+						levl3 = lvl[2]->run();
 						delete(lvl[2]);
 						lvl[2] = new level3;
 						yada.play();
@@ -334,7 +334,7 @@ int Chapters::chapter_select()
 
 					if (unlock_level[4] == 1) {
 						yada.stop();
-						levl4 = lvl[3]->run(6);
+						levl4 = lvl[3]->run();
 						delete(lvl[3]);
 						lvl[3] = new level4;
 						yada.play();
@@ -367,7 +367,7 @@ int Chapters::chapter_select()
 
 					if (unlock_level[5] == 1) {
 						yada.stop();
-						levl5 = lvl[4]->run(6);
+						levl5 = lvl[4]->run();
 						delete(lvl[4]);
 						lvl[4] = new level5;
 						yada.play();
@@ -397,7 +397,7 @@ int Chapters::chapter_select()
 
 					if (unlock_level[5] == 1) {
 						yada.stop();
-						levl6 = lvl[5]->run(8);
+						levl6 = lvl[5]->run();
 						delete(lvl[5]);
 						lvl[5] = new level6;
 						yada.play();
@@ -430,7 +430,7 @@ int Chapters::chapter_select()
 
 					if (unlock_level[6] == 1) {
 						yada.stop();
-						levl7 = lvl[6]->run(10);
+						levl7 = lvl[6]->run();
 						delete(lvl[6]);
 						lvl[6] = new level7;
 						yada.play();
@@ -461,7 +461,7 @@ int Chapters::chapter_select()
 
 					if (unlock_level[7] == 1) {
 						yada.stop();
-						levl8 = lvl[7]->run(13);
+						levl8 = lvl[7]->run();
 						delete(lvl[7]);
 						lvl[7] = new level8;
 						yada.play();
@@ -491,7 +491,7 @@ int Chapters::chapter_select()
 
 					if (unlock_level[8] == 1) {
 						yada.stop();
-						levl9 = lvl[8]->run(18);
+						levl9 = lvl[8]->run();
 						delete(lvl[8]);
 						lvl[8] = new level9;
 						yada.play();
@@ -516,7 +516,7 @@ int Chapters::chapter_select()
 
 					if (unlock_level[9] == 1) {
 						yada.stop();
-						levl10 = lvl[9]->run(18);
+						levl10 = lvl[9]->run();
 						delete(lvl[9]);
 						lvl[9] = new level10;
 						yada.play();

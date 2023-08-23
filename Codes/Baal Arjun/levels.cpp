@@ -695,11 +695,4 @@ int Levels::run(int num)
 	return 1;
 };
 
-void Levels::setLockStatus(bool a) {
-	lockStatus = a;
-}
-
-bool Levels::getLockStatus() {
-	return lockStatus;
-}
 

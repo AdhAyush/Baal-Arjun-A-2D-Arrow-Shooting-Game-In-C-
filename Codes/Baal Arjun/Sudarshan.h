@@ -58,27 +58,22 @@ public:
 	// Launch a new Arrow
 	void shootSudarshan(float startX, float startY,
 		float xTarget, float yTarget);
-	/*	void shootSudardhan(float startX, float startY,
-			float xTarget, float yTarget, int f)*/;
 
 
-			//void shoot(float startX, float startY);
-			/*void shoot(float startX, float startY, int f);*/
+	// Tell the calling code where the Sudarshan is in the world
+	FloatRect getPosition();
+	/*FloatRect getPosition(int f);*/
 
-			// Tell the calling code where the Sudarshan is in the world
-			FloatRect getPosition();
-			/*FloatRect getPosition(int f);*/
+	// Change the arrow speed as per need
+	void setSudarshanspeed(int s);
 
-			// Change the arrow speed as per need
-			void setSudarshanspeed(int s);
-
-			// Return the actual sprite (for drawing)
-			Sprite getSprite();
-			//Sprite getSprite(int f);
+	// Return the actual sprite (for drawing)
+	Sprite getSprite();
+	//Sprite getSprite(int f);
 
 
-			// Update the Sudarshan each frame
-			void update(float elapsedTime, Vector2f resolution);
-			//void update(float elapsedTime, Vector2f resolution, int f);
+	// Update the Sudarshan each frame
+	void update(float elapsedTime, Vector2f resolution);
+	//void update(float elapsedTime, Vector2f resolution, int f);
 
 };

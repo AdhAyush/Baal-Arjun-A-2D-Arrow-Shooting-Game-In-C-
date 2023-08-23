@@ -7,20 +7,6 @@ using namespace sf;
 class Enemy
 {
 private:
-	// How fast is each Enemy type?
-	const float Enemy_Level3_Speed = 40;
-	const float Enemy_Level2_Speed = 80;
-	const float Enemy_Level1_Speed = 20;
-
-	// How tough is each Enemy type
-	const float Enemy_Level3_HEALTH = 5;
-	const float Enemy_Level2_HEALTH = 1;
-	const float Enemy_Level1_HEALTH = 3;
-
-	// Make each Enemy vary its speed slightly
-	const int MAX_VARRIANCE = 30;
-	const int OFFSET = 101 - MAX_VARRIANCE;
-
 	// Where is this Enemy?
 	Vector2f m_Position;
 
@@ -59,7 +45,7 @@ public:
 	bool isAlive();
 
 	// Spawn a new Enemy
-	void spawn(float startX, float startY, int type, int seed, int timeInterval);
+	void spawn(float startX, float startY, int type, int timeInterval);
 
 	// Return a rectangle that is the position in the world
 	FloatRect getPosition();

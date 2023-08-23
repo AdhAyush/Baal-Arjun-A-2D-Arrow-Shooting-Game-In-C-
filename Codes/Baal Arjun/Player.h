@@ -99,15 +99,6 @@ public:
 	//
 	float getMaxHealth();
 
-	// Give player a speed boost
-	//void upgradeSpeed();
-
-	// Give the player some health
-	//void upgradeHealth();
-
-	// Increase the maximum amount of health the player can have
-	//void increaseHealthLevel(int amount);
-
 
 };
 

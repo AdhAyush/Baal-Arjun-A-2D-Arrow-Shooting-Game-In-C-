@@ -13,10 +13,6 @@ using namespace sf;
 
 class level3 :public Levels {
 private:
-	const int numEnemies = 3;
-	int numEnemiesAlive = numEnemies;
-	sf::Sprite s;
-	sf::Sprite s_load;
 
 public:
 	level3() {
@@ -31,21 +27,21 @@ public:
 		if (numEnemiesAlive == 5) {
 			for (int i = 0; i < numEnemiesAlive; i++) {
 				if (i < 3)
-					enemy[i].spawn(resolution.x / 2, resolution.y / 4 * (i + 1), 1, 1, 100);
+					enemy[i].spawn(resolution.x / 2, resolution.y / 4 * (i + 1), 1, 100);
 				else
-					enemy[i].spawn(resolution.x / 2 + 100, resolution.y / 6 * (i - 2), 0, 1, 100);
+					enemy[i].spawn(resolution.x / 2 + 100, resolution.y / 6 * (i - 2), 0, 100);
 			
 			}
 		}
 		else {
 			for (int i = 0; i < numEnemiesAlive; i++) {
 				if (i % 3 == 0)
-					enemy[i].spawn(resolution.x / 2, resolution.y / 4, 0, 1, 100);
+					enemy[i].spawn(resolution.x / 2, resolution.y / 4, 0, 100);
 
 				else if (i % 3 == 1)
-					enemy[i].spawn(resolution.x / 2, resolution.y / 2, 1, 1, 100);
+					enemy[i].spawn(resolution.x / 2, resolution.y / 2, 1, 100);
 				else
-					enemy[i].spawn(resolution.x / 2, resolution.y / 3, 2, 1, 100);
+					enemy[i].spawn(resolution.x / 2, resolution.y / 3, 2, 100);
 
 
 
@@ -91,6 +87,8 @@ public:
 
 				if (i < 3) {
 					if (enemy[i].lastShootGreaterThanInterval()) {
+
+						enemyArrow[enemyCurrentArrow].setArrowspeed(300);
 						shootLinear(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow);
 					}
 				}
@@ -98,6 +96,7 @@ public:
 
 					if (enemy[i].lastShootGreaterThanInterval())
 					{
+						enemyArrow[enemyCurrentArrow].setArrowspeed(500);
 						shootTowardsPlayer(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow, player);
 					}
 				}
@@ -108,13 +107,13 @@ public:
 	}
 
 
-	int run(int num)
+	int run()
 	{	
-		enemy = new Enemy[num];
-		enemyHealth = new RectangleShape[num];
+		enemy = new Enemy[5];
+		enemyHealth = new RectangleShape[5];
 		
 		int temp;
-		temp = Levels::run(num);
+		temp = Levels::run(5);
 		return temp;
 	}
 };

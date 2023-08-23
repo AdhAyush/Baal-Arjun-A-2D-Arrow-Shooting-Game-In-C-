@@ -13,10 +13,6 @@ using namespace sf;
 
 class level7 :public Levels {
 private:
-	const int numEnemies = 3;
-	int numEnemiesAlive = numEnemies;
-	sf::Sprite s;
-	sf::Sprite s_load;
 
 public:
 	level7() {
@@ -28,18 +24,18 @@ public:
 
 	void spawn(Enemy* enemy, int numEnemiesAlive, Vector2f resolution) override {
 
-		enemy[0].spawn(resolution.x / 2 + 200, resolution.y / 6, 0, 1,100);
-		enemy[1].spawn(resolution.x / 2 + 150, resolution.y / 6 * 2, 0, 1, 100);
-		enemy[2].spawn(resolution.x / 2 + 100, resolution.y / 6 * 3, 0, 1, 100);
-		enemy[3].spawn(resolution.x / 2 + 150, resolution.y / 6 * 4, 0, 1, 100);
-		enemy[4].spawn(resolution.x / 2 + 200, resolution.y / 6 * 5, 0, 1, 100);
+		enemy[0].spawn(resolution.x / 2 + 200, resolution.y / 6, 0, 100);
+		enemy[1].spawn(resolution.x / 2 + 150, resolution.y / 6 * 2, 0, 100);
+		enemy[2].spawn(resolution.x / 2 + 100, resolution.y / 6 * 3, 0, 100);
+		enemy[3].spawn(resolution.x / 2 + 150, resolution.y / 6 * 4, 0, 100);
+		enemy[4].spawn(resolution.x / 2 + 200, resolution.y / 6 * 5, 0, 100);
 		
-		enemy[5].spawn(resolution.x / 2 + 300, resolution.y / 4 * 1, 1, 1, 100);
-		enemy[6].spawn(resolution.x / 2 + 200, resolution.y / 4 * 2, 1, 1, 100);
-		enemy[7].spawn(resolution.x / 2 + 300, resolution.y / 4 * 3, 1, 1, 100);
+		enemy[5].spawn(resolution.x / 2 + 300, resolution.y / 4 * 1, 1, 100);
+		enemy[6].spawn(resolution.x / 2 + 200, resolution.y / 4 * 2, 1, 100);
+		enemy[7].spawn(resolution.x / 2 + 300, resolution.y / 4 * 3, 1, 100);
 
-		enemy[8].spawn(resolution.x / 2 + 500, resolution.y / 4, 2, 1, 100);
-		enemy[9].spawn(resolution.x / 2 + 500, resolution.y / 4 * 3, 2, 1, 100);
+		enemy[8].spawn(resolution.x / 2 + 500, resolution.y / 4, 2, 100);
+		enemy[9].spawn(resolution.x / 2 + 500, resolution.y / 4 * 3, 2, 100);
 
 	}
 
@@ -84,6 +80,7 @@ public:
 				enemy[i]++;
 				if (enemy[i].lastShootGreaterThanInterval()) {
 	
+					enemyArrow[enemyCurrentArrow].setArrowspeed(300);
 					shootLinear(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow);
 				}
 			}
@@ -94,21 +91,8 @@ public:
 			if (enemy[i].isAlive()) {
 				enemy[i]++;
 				if (enemy[i].lastShootGreaterThanInterval()) {
-				/*
-					enemyArrow[enemyCurrentArrow].setArrowspeed(800);
-
-					enemyArrow[enemyCurrentArrow].shoot(
-						enemy[i].getCenter().x, enemy[i].getCenter().y,
-						player.getCenter().x, player.getCenter().y);
-
-
-					enemyCurrentArrow++;
-					if (enemyCurrentArrow > 99)
-					{
-						enemyCurrentArrow = 0;
-					}
-					enemy[i].resetTimeSinceLastShoot();
-				*/
+				
+					enemyArrow[enemyCurrentArrow].setArrowspeed(500);
 					shootTowardsPlayer(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow, player);
 				}
 			}
@@ -118,7 +102,7 @@ public:
 	}
 
 
-	int run(int num)
+	int run()
 	{
 		enemy = new Enemy[10];
 		enemyHealth = new RectangleShape[10];
