@@ -41,6 +41,38 @@ void Enemy::spawn(float startX, float startY, int type, int timeInterval)
 		m_MaxHealth = 10;
 
 		break;
+	case 3:
+		//for practice level 1
+		m_Texture.loadFromFile("graphics/treeorange.png");
+		m_Sprite.setTexture(m_Texture);
+
+		m_Speed = 0;
+		m_Health = 5;
+		m_MaxHealth = 5;
+		break;
+
+
+	case 4:
+		//for practice level 2
+		m_Texture.loadFromFile("graphics/bird.png");
+		m_Sprite.setTexture(m_Texture);
+
+		m_Speed = -200;
+		m_Health = 3;
+		m_MaxHealth = 3;
+		break;
+
+
+	case 5:
+		//for practice level 3
+		m_Texture.loadFromFile("graphics/Carriage.png");
+		m_Sprite.setTexture(m_Texture);
+
+		m_Speed = -150;
+		m_Health = 8;
+		m_MaxHealth = 8;
+
+		break;
 	default:
 		break;
 	}
@@ -75,12 +107,20 @@ bool Enemy::hit()
 //overloading for sudarshan
 bool Enemy::hit(int s)
 {
-	// dead when hit by sudarshan chakra
-	m_Alive = false;
-	m_Texture.loadFromFile("graphics/blood.png");
-	m_Sprite.setTexture(m_Texture);
+	// when hit by sudarshan chakra
+	m_Health -= 5;
+	if (m_Health <= 0)
+	{
+		// dead
+		m_Alive = false;
+		m_Texture.loadFromFile("C:\\Users\\ayush\\OneDrive\\Desktop\\Baal arjun\\Codes\\Baal Arjun\\graphics\\blood.png");
+		m_Sprite.setTexture(m_Texture);
 
-	return true;
+		return true;
+	}
+
+	// injured but not dead yet
+	return false;
 
 }
 
@@ -205,4 +245,20 @@ bool Enemy::lastShootGreaterThanInterval() {
 
 void Enemy::resetTimeSinceLastShoot() {
 	timeSinceLastShoot = 0;
+}
+
+void Enemy::updateVerticalandRotate(float elapsedTime, float y_Max, float y_Min) {
+	if (m_Position.y < (y_Min + 50)) {
+		m_Speed *= -1;
+		m_Sprite.setRotation(180);
+
+	}
+
+	if (m_Position.y > (y_Max - 50)) {
+		m_Speed *= -1;
+		m_Sprite.setRotation(0);
+	}
+
+	m_Position.y += m_Speed * elapsedTime;
+	m_Sprite.setPosition(m_Position);
 }

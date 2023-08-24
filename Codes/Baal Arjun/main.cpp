@@ -83,6 +83,8 @@ int main()
 	openingSound.setBuffer(soundBuffer);
 
 	//play the sounds
+	openingSound.setVolume(50);
+	openingSound.setLoop(true);
 	openingSound.play();
 
 

@@ -37,7 +37,8 @@ public:
 	void update(Enemy* enemy, RectangleShape* enemyHealth, int numEnemies, Vector2f resolution, Vector2f playerPosition, float elapsedTime) {
 
 		//Loop through each enemy and update them
-		enemy[5].updateVertical(elapsedTime, resolution.y, 0);
+		if (enemy[5].isAlive())
+			enemy[5].updateVertical(elapsedTime, resolution.y, 0);
 
 		
 		for (int i = 0; i < 6; i++) {
@@ -47,6 +48,9 @@ public:
 		
 	}
 
+	void setPlayerHealth(Player& player) {
+		player.setMaxHealth(100);
+	}
 
 
 	void enemyShoot(Enemy* enemy, int numEnemies, int& enemyCurrentArrow, Arrow* enemyArrow, Player player) {

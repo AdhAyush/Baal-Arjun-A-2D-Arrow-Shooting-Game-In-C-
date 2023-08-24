@@ -74,9 +74,9 @@ protected:
 	// 5 sudarshans should do
 	Sudarshan sudarshan[100];
 	int currentSudarshan = 0;
-	int SudarshanSpare = 30;
-	int SudarshanInQuiver = 30;         // initial number of arrow in quiver
-	int SquiverSize = 30;            //size of the quiver to hold the arrow
+	int SudarshanSpare = 2;
+	int SudarshanInQuiver = 1;         // initial number of arrow in quiver
+	int SquiverSize = 1;            //size of the quiver to hold the arrow
 	float SfireRate = 2;
 
 
@@ -166,5 +166,5 @@ public:
 	virtual void update(Enemy* enemy, RectangleShape* enemyHealth, int numEnemies, Vector2f resolution, Vector2f playerPosition, float elapsedTime);
 	virtual void enemyShoot(Enemy* enemy, int numEnemies, int& enemyCurrentArrow, Arrow* enemyArrow, Player player);
 	virtual int run() = 0;
-
+	virtual void setPlayerHealth(Player& p) = 0;
 };

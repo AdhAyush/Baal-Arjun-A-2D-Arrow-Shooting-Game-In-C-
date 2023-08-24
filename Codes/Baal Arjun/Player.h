@@ -7,9 +7,9 @@ using namespace sf;
 class Player
 {
 private:
-	const float START_SPEED = 200;
-	const float START_HEALTH = 10000;
-	const float m_MaxHealth = 10000;
+	 float START_SPEED = 200;
+	 float START_HEALTH = 300;
+	 float m_MaxHealth = 300;
 
 	// Where is the player
 	Vector2f m_Position;
@@ -99,7 +99,7 @@ public:
 	//
 	float getMaxHealth();
 
-
+	void setMaxHealth(int s);
 };
 
 

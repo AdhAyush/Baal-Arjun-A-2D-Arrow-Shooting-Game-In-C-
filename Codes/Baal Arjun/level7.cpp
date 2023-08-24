@@ -72,6 +72,10 @@ public:
 
 	}
 
+	void setPlayerHealth(Player& player) {
+		player.setMaxHealth(250);
+	}
+
 
 	void enemyShoot(Enemy* enemy, int numEnemies, int& enemyCurrentArrow, Arrow* enemyArrow, Player player) {
 

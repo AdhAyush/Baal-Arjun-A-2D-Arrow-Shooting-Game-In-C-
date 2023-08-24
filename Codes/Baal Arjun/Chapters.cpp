@@ -82,6 +82,8 @@ Chapters::Chapters()
 
 	yadaBuffer.loadFromFile("sounds/yada.mp3");
 	yada.setBuffer(yadaBuffer);
+	yada.setVolume(70);
+	yada.setLoop(true);
 
 }
 
@@ -595,13 +597,13 @@ int Chapters::chapter_select()
 
 
 
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			if (i == 0)
 			{
 				if (unlock_level[5 + i] == 1)   // draws unlocked icon if the level is unlocked i.e the array has 1 value
 				{
-					Y_offset += 65;
+					Y_offset += 50;
 
 					//drawing new unlocked icon
 					unlockSprite.setPosition(250, 160 + Y_offset);
@@ -611,7 +613,7 @@ int Chapters::chapter_select()
 				if (unlock_level[5 + i] == 0)						// draws locked icon if the level is locked	i.e the array has 0 value
 				{
 					lockSprite.setColor(sf::Color(255, 255, 255, 255)); // make lock visible
-					Y_offset += 65;
+					Y_offset += 50;
 					lockSprite.setPosition(250, 160 + Y_offset);
 					window.draw(lockSprite);
 				}

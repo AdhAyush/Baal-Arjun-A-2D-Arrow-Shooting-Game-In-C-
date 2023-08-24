@@ -194,4 +194,8 @@ void Player::update(float elapsedTime, Vector2i mousePosition)
 	m_Sprite.setRotation(angle + 270);
 }
 
+void Player::setMaxHealth(int h) {
+	m_Health = h;
+	m_MaxHealth = h;
+}
 

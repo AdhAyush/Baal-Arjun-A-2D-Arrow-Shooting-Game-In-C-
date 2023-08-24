@@ -22,88 +22,31 @@ public:
 	}
 	~level1() {}
 
-	void spawn(Enemy* enemy, int numEnemiesAlive, Vector2f resolution) override {
-
-		if (numEnemiesAlive == 5) {
-			for (int i = 0; i < numEnemiesAlive; i++) {
-				if (i < 3)
-					enemy[i].spawn(resolution.x / 2, resolution.y / 4 * (i + 1), 1, 100);
-				else
-					enemy[i].spawn(resolution.x / 2 + 100, resolution.y / 6 * (i - 2), 0,  100);
-			}
-		}
-		else {
-			for (int i = 0; i < numEnemiesAlive; i++) {
-				if (i % 3 == 0)
-					enemy[i].spawn(resolution.x / 2, resolution.y / 4, 0, 100);
-
-				else if (i % 3 == 1)
-					enemy[i].spawn(resolution.x / 2, resolution.y / 2, 1, 100);
-				else
-					enemy[i].spawn(resolution.x / 2, resolution.y / 3, 2, 100);
-
-			}
-		}
-	}
-
-
-	void update(Enemy* enemy, RectangleShape* enemyHealth, int numEnemies, Vector2f resolution, Vector2f playerPosition, float elapsedTime) {
-
-		//Loop through each Zombie and update them
-		for (int i = 0; i < numEnemies; i++)
+	void spawn(Enemy* enemy, int numEnemiesAlive, Vector2f resolution) override
 		{
 
-			if (i < 3 && enemy[i].isAlive() ){
-				//enemy[i].update();
-
-				updateEnemyHealthBar(enemy[i], enemyHealth[i]);
-				
-			}
-			else {
-
-				if (enemy[i].isAlive())
-				{
-				
-					enemy[i].update(elapsedTime, playerPosition, resolution);
-					updateEnemyHealthBar(enemy[i], enemyHealth[i]);
-				}
-			}
-		}
+		enemy[0].spawn(2 * resolution.x / 3, resolution.y / 3, 3, 100);
 
 
 	}
 
+	void setPlayerHealth(Player& player) {
+		player.setMaxHealth(100);
+	}
 
-	void enemyShoot(Enemy* enemy, int numEnemies, int &enemyCurrentArrow, Arrow* enemyArrow, Player player) {
+		/* 
+		void update(Enemy* enemy, RectangleShape* enemyHealth, int numEnemies, Vector2f resolution, Vector2f playerPosition, float elapsedTime) {
 
-		for (int i = 0; i < numEnemies; i++) {
-			if (enemy[i].isAlive()) {
-
-				enemy[i]++;
-
-				if (i < 3) {
-
-					if (enemy[i].lastShootGreaterThanInterval()) {
-						enemyArrow[enemyCurrentArrow].setArrowspeed(300);
-						shootLinear(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow);
-					}
-				}
-				else
-				{
-
-					if (enemy[i].lastShootGreaterThanInterval()) {
-
-						enemyArrow[enemyCurrentArrow].setArrowspeed(500);
-						shootTowardsPlayer(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow, player);
-					}
-
-				}
-			}
-
+			
 
 		}
 
-	}
+		//the target is stationary in this level, which does not shoot, so, 'enemyShoot' function is not necesary
+
+		void enemyShoot(Enemy* enemy, int numEnemies, int enemyCurrentArrow, Arrow* enemyArrow, Player player)
+			{	}
+			
+		*/
 
 
 	int run()

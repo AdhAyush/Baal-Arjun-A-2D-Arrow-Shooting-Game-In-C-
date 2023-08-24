@@ -121,6 +121,10 @@ public:
 
 	}
 
+	void setPlayerHealth(Player& player) {
+		player.setMaxHealth(350);
+	}
+
 
 	int run()
 	{

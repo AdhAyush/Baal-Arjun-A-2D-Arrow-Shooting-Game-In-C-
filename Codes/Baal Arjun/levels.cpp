@@ -191,8 +191,8 @@ int Levels::run(int num)
 						else if (arrowSpare <= 0)
 						{
 							// Only few arrow left
-							arrowInQuiver = arrowSpare;
-							arrowSpare = 0;
+							//arrowInQuiver = arrowSpare;
+							//arrowSpare = 0;
 						}
 						//for sudarshan
 						if (SudarshanSpare > 0)
@@ -206,8 +206,8 @@ int Levels::run(int num)
 						else if (SudarshanSpare <= 0)
 						{
 							// Only few arrow left
-							SudarshanInQuiver = SudarshanSpare;
-							SudarshanSpare = 0;
+							//SudarshanInQuiver = SudarshanSpare;
+						    //SudarshanSpare = 0;
 						}
 
 					}
@@ -333,6 +333,8 @@ int Levels::run(int num)
 			//game starts here
 			if (state == State::PLAYING)
 			{
+				warIntro.setVolume(40);
+				warIntro.setLoop(true);
 				warIntro.play();
 
 				//arena of the battleground
@@ -352,6 +354,7 @@ int Levels::run(int num)
 				playerArena.top = 0;
 
 				// Spawn the player 
+				setPlayerHealth(player);
 				player.spawn(playerArena, resolution, tileSize);
 
 				spawn(enemy, numEnemiesAlive, resolution);

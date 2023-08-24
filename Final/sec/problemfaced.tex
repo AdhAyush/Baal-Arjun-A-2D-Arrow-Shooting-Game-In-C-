@@ -1,0 +1,30 @@
+\section{PROBLEM FACED AND SOLUTIONS}
+Problem Faced and solution:
+
+\begin{enumerate}
+	\item Code Manageability
+	
+	The use of Object Oriented programming helped us in dividing the code into multiple parts(header and cpp files) and manageable chunks. Navigating between certain parts of the code often and finding specific lines were tedious due to the sheer volume of the code spread throughout 25+ header and cpp files.
+	
+	This problem was solved by using naming the files, classes, objects, variables and functions with relevant names. The naming was greatly assisted by SFML library declared variable and function names. Proper Comments were mentioned in each and every section of code which in turn, increased code readability as well as facilitated code manageability.
+	
+	
+	\item  Arrow Overriding
+	While we were satisfied by SFML library defined functions, one of the unexpected problems faced was - whenever a new arrow was shot by enemy, the previous arrow simply disappeared from screen. This ensured undue immunity to player which contradicted the motive of the game.
+	
+	The solution entailed passing the count of arrows using a "pass by reference" mechanism, thereby enabling accurate tracking and management of all arrows within the game environment.
+		
+	\item Debugging and Updating
+	A true developer knows how much debugging and testing goes on, even while writing a relatively simple code. As such, we were not immune to this phenomena, specially in each level while setting the attributes of  enemy ie , the position of every enemies and their speed. Similar problem was faced while writing the level selection and play/quit code.
+	
+	This problem was solved by intensively following hit and trial method. All of the code was rigorously tested so as to minimize errors and create smooth and seamless gaming experience.
+	
+	\item Lack of Appropriate Images
+	Since the visual orientation of the game was top view, there were not a lot of images that followed the rather unconventional view. Most images we found were either front view or angular view, but as we choose top down view due to its benefit that both x and y axis along with rotation could be involved, the overall graphical aesthetics of the game was compromised. Even after spending a lot of time searching images such as (warrior from top view, horse carriage from top view, etc. ) and free tokens in AI image generators, the results were not satisfactory.
+		
+\end{enumerate}
+
+
+
+This problem was solved by selecting the image which best fit our requirement and image manipulation (such as combining top view of horses, top view of empty carriage , and top view of a standing warrior to make top view of a warrior in a horse carriage ). 
+\newpage

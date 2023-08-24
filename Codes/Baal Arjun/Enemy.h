@@ -76,6 +76,7 @@ public:
 
 	void resetTimeSinceLastShoot();
 	
+	void updateVerticalandRotate(float elapsedTime, float y_Max, float y_Min);
 };
 
 
