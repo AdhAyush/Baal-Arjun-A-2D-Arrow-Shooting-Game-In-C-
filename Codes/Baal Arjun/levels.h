@@ -66,7 +66,7 @@ protected:
 	// 100 arrow should do
 	Arrow arrow[100];
 	int currentArrow = 0;
-	int arrowSpare = 30;
+	int arrowSpare = 60;
 	int arrowInQuiver = 30;         // initial number of arrow in quiver
 	int quiverSize = 30;            //size of the quiver to hold the arrow
 	float fireRate = 2;

@@ -37,31 +37,31 @@ public:
 		enemy[5].spawn(resolution.x / 2 + 200, resolution.y / 7 * 6, 0, 100);
 
 		enemy[6].spawn(resolution.x / 2 + 220, resolution.y / 6 * 1, 0, 100);
-		enemy[7].spawn(resolution.x / 2 + 200, resolution.y / 6 * 2, 2, 100);
-		enemy[8].spawn(resolution.x / 2 + 180, resolution.y / 6 * 3, 2, 100);
-		enemy[9].spawn(resolution.x / 2 + 200, resolution.y / 6 * 4, 0, 100);
+		enemy[7].spawn(resolution.x / 2 + 200, resolution.y / 6 * 2, 2, 300);
+		enemy[8].spawn(resolution.x / 2 + 180, resolution.y / 6 * 3, 0, 100);
+		enemy[9].spawn(resolution.x / 2 + 200, resolution.y / 6 * 4, 2, 300);
 		enemy[10].spawn(resolution.x / 2 + 220, resolution.y / 6 * 5, 0, 100);
 
-		enemy[11].spawn(resolution.x / 2 + 250, resolution.y / 5 * 1, 1, 100);
-		enemy[12].spawn(resolution.x / 2 + 250, resolution.y / 5 * 2, 2, 100);
-		enemy[13].spawn(resolution.x / 2 + 250, resolution.y / 5 * 3, 2, 100);
-		enemy[14].spawn(resolution.x / 2 + 250, resolution.y / 5 * 4, 1, 100);
+		enemy[11].spawn(resolution.x / 2 + 270, resolution.y / 5 * 1, 1, 200);
+		enemy[12].spawn(resolution.x / 2 + 270, resolution.y / 5 * 2, 2, 300);
+		enemy[13].spawn(resolution.x / 2 + 270, resolution.y / 5 * 3, 2, 300);
+		enemy[14].spawn(resolution.x / 2 + 270, resolution.y / 5 * 4, 1, 200);
 		
-		enemy[15].spawn(resolution.x / 2 + 330, resolution.y / 4 * 1, 2, 100);
-		enemy[16].spawn(resolution.x / 2 + 330, resolution.y / 4 * 2, 2, 100);
-		enemy[17].spawn(resolution.x / 2 + 330, resolution.y / 4 * 3, 2, 100);
+		enemy[15].spawn(resolution.x / 2 + 350, resolution.y / 4 * 1, 2, 300);
+		enemy[16].spawn(resolution.x / 2 + 350, resolution.y / 4 * 2, 2, 300);
+		enemy[17].spawn(resolution.x / 2 + 350, resolution.y / 4 * 3, 2, 300);
 		
-		enemy[18].spawn(resolution.x / 3 + 100, resolution.y / 5 * 1, 1, 100);
-		enemy[19].spawn(resolution.x / 3 + 200, resolution.y / 5 * 2, 1, 100);
-		enemy[20].spawn(resolution.x / 3 + 100, resolution.y / 5 * 3, 1, 100);
-		enemy[21].spawn(resolution.x / 3 + 300, resolution.y / 5 * 4, 1, 100);
+		enemy[18].spawn(resolution.x / 2 + 430, resolution.y / 5 * 1, 1, 200);
+		enemy[19].spawn(resolution.x / 2 + 430, resolution.y / 5 * 2, 1, 200);
+		enemy[20].spawn(resolution.x / 2 + 430, resolution.y / 5 * 3, 1, 200);
+		enemy[21].spawn(resolution.x / 2 + 430, resolution.y / 5 * 4, 1, 200);
 	}
 
 
 	void update(Enemy* enemy, RectangleShape* enemyHealth, int numEnemies, Vector2f resolution, Vector2f playerPosition, float elapsedTime) {
 
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 6; i++) {
 			if (!enemy[i].isAlive()) {
 				continue;
 			}
@@ -70,7 +70,16 @@ public:
 
 		}
 
-		for (int i = 10; i < 15; i++) {
+		for (int i = 5; i < 11; i++) {
+			if (!enemy[i].isAlive()) {
+				continue;
+			}
+			enemy[i].updateLinear(elapsedTime, 600);
+			updateEnemyHealthBar(enemy[i], enemyHealth[i]);
+
+		}
+
+		for (int i = 11; i < 15; i++) {
 			if (!enemy[i].isAlive()) {
 				continue;
 			}
@@ -92,11 +101,20 @@ public:
 	}
 
 
-	void enemyShoot(Enemy* enemy, int numEnemies, int enemyCurrentArrow, Arrow* enemyArrow, Player player) {
+	void enemyShoot(Enemy* enemy, int numEnemies, int& enemyCurrentArrow, Arrow* enemyArrow, Player player) {
 
-		for (int i = 0; i < 16; i++) {
+		for (int i = 0; i < 11; i++) {
 			if (enemy[i].isAlive()) {
 				enemy[i]++;
+				if (i == 7 || i == 9) {
+					if (enemy[i].lastShootGreaterThanInterval()) {
+
+						enemyArrow[enemyCurrentArrow].setArrowspeed(500);
+						shootTowardsPlayer(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow, player);
+					}
+					continue;
+				}
+
 				if (enemy[i].lastShootGreaterThanInterval()) {
 
 					enemyArrow[enemyCurrentArrow].setArrowspeed(300);
@@ -105,7 +123,7 @@ public:
 			}
 		}
 
-		for (int i = 16; i < 23; i++) {
+		for (int i = 11; i < 22; i++) {
 
 
 			if (enemy[i].isAlive()) {
@@ -122,7 +140,7 @@ public:
 	}
 
 	void setPlayerHealth(Player& player) {
-		player.setMaxHealth(350);
+		player.setMaxHealth(320);
 	}
 
 

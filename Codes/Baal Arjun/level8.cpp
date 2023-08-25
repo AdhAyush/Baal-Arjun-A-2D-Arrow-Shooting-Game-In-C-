@@ -85,7 +85,7 @@ public:
 	}
 
 	void setPlayerHealth(Player& player) {
-		player.setMaxHealth(300);
+		player.setMaxHealth(250);
 	}
 
 
@@ -110,7 +110,7 @@ public:
 				enemy[i]++;
 				if (enemy[i].lastShootGreaterThanInterval()) {
 
-					enemyArrow[enemyCurrentArrow].setArrowspeed(500);
+					enemyArrow[enemyCurrentArrow].setArrowspeed(550);
 					shootTowardsPlayer(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow, player);
 				}
 			}

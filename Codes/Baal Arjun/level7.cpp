@@ -30,12 +30,12 @@ public:
 		enemy[3].spawn(resolution.x / 2 + 150, resolution.y / 6 * 4, 0, 100);
 		enemy[4].spawn(resolution.x / 2 + 200, resolution.y / 6 * 5, 0, 100);
 		
-		enemy[5].spawn(resolution.x / 2 + 300, resolution.y / 4 * 1, 1, 100);
-		enemy[6].spawn(resolution.x / 2 + 200, resolution.y / 4 * 2, 1, 100);
-		enemy[7].spawn(resolution.x / 2 + 300, resolution.y / 4 * 3, 1, 100);
+		enemy[5].spawn(resolution.x / 2 + 300, resolution.y / 4 * 1, 1, 200);
+		enemy[6].spawn(resolution.x / 2 + 200, resolution.y / 4 * 2, 1, 200);
+		enemy[7].spawn(resolution.x / 2 + 300, resolution.y / 4 * 3, 1, 200);
 
-		enemy[8].spawn(resolution.x / 2 + 500, resolution.y / 4, 2, 100);
-		enemy[9].spawn(resolution.x / 2 + 500, resolution.y / 4 * 3, 2, 100);
+		enemy[8].spawn(resolution.x / 2 + 500, resolution.y / 4, 2, 250);
+		enemy[9].spawn(resolution.x / 2 + 500, resolution.y / 4 * 3, 2, 250);
 
 	}
 
@@ -73,7 +73,7 @@ public:
 	}
 
 	void setPlayerHealth(Player& player) {
-		player.setMaxHealth(250);
+		player.setMaxHealth(220);
 	}
 
 

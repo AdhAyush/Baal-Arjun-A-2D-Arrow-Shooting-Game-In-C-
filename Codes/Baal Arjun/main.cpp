@@ -182,15 +182,6 @@ int main()
 				}
 			}//endif
 
-			if (event.key.code == Keyboard::Num1) // modify this code to look for level selected i..e.  (if level ==1 ) => body remains same
-			{
-				//window.close();
-				int cs;
-				Chapters c;
-				cs = c.chapter_select();
-			}
-
-
 
 			window.clear();
 			window.setView(mainView);

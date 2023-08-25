@@ -333,7 +333,7 @@ int Levels::run(int num)
 			//game starts here
 			if (state == State::PLAYING)
 			{
-				warIntro.setVolume(40);
+				warIntro.setVolume(10);
 				warIntro.setLoop(true);
 				warIntro.play();
 

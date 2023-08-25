@@ -30,11 +30,11 @@ public:
 		enemy[2].spawn(resolution.x / 2 + 100, resolution.y / 5 * 3, 0, 100);
 		enemy[3].spawn(resolution.x / 2 + 200, resolution.y / 5 * 4, 0, 100);
 
-		enemy[4].spawn(resolution.x / 2 + 400, resolution.y / 4 * 1, 1, 200);
-		enemy[5].spawn(resolution.x / 2 + 300, resolution.y / 4 * 2, 1, 200);
-		enemy[6].spawn(resolution.x / 2 + 400, resolution.y / 4 * 3, 1, 200);
+		enemy[4].spawn(resolution.x / 2 + 400, resolution.y / 4 * 1, 1, 150);
+		enemy[5].spawn(resolution.x / 2 + 300, resolution.y / 4 * 2, 1, 150);
+		enemy[6].spawn(resolution.x / 2 + 400, resolution.y / 4 * 3, 1, 150);
 
-		enemy[7].spawn(resolution.x / 2 + 500, resolution.y / 2 , 2, 150);
+		enemy[7].spawn(resolution.x / 2 + 500, resolution.y / 2 , 2, 200);
 
 	}
 
@@ -48,8 +48,6 @@ public:
 			}
 			enemy[i].updateLinear(elapsedTime, 500);
 
-			//this increase the time since last shoot     as in update it loops through all enemy objects, so it is written here to save time 
-			enemy[i]++;
 			updateEnemyHealthBar(enemy[i],enemyHealth[i]);
 		}
 
@@ -59,7 +57,6 @@ public:
 			}
 			//enemy[i].updateLinear(elapsedTime);
 			updateEnemyHealthBar(enemy[i], enemyHealth[i]);
-			enemy[i]++;
 		}
 
 
@@ -68,7 +65,7 @@ public:
 
 	
 	void setPlayerHealth(Player& player) {
-		player.setMaxHealth(200);
+		player.setMaxHealth(100);
 	}
 
 

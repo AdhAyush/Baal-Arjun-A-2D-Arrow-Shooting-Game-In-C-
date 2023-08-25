@@ -16,7 +16,7 @@ private:
 
 public:
 	level1() {
-		textureBackground.loadFromFile("C:\\Users\\ayush\\OneDrive\\Desktop\\Baal arjun\\Codes\\Baal Arjun\\graphics\\grass.png");
+		textureBackground.loadFromFile("C:\\Users\\ayush\\OneDrive\\Desktop\\Baal arjun\\Codes\\Baal Arjun\\graphics\\grass2.jpg");
 		s.setTexture(textureBackground);
 
 	}

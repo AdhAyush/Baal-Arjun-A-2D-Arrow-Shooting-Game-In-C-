@@ -31,20 +31,20 @@ public:
 		enemy[4].spawn(resolution.x / 2 + 170, resolution.y / 7 * 5, 0, 100);
 		enemy[5].spawn(resolution.x / 2 + 200, resolution.y / 7 * 6, 0, 100);
 		
-		enemy[6].spawn(resolution.x / 2 + 220, resolution.y / 6 * 1, 0, 100);
-		enemy[7].spawn(resolution.x / 2 + 200, resolution.y / 6 * 2, 0, 100);
-		enemy[8].spawn(resolution.x / 2 + 180, resolution.y / 6 * 3, 0, 100);
-		enemy[9].spawn(resolution.x / 2 + 200, resolution.y / 6 * 4, 0, 100);
-		enemy[10].spawn(resolution.x / 2 + 220, resolution.y / 6 * 5, 0, 100);
+		enemy[6].spawn(resolution.x / 2 + 220, resolution.y / 6 * 1, 0, 200);
+		enemy[7].spawn(resolution.x / 2 + 200, resolution.y / 6 * 2, 0, 200);
+		enemy[8].spawn(resolution.x / 2 + 180, resolution.y / 6 * 3, 0, 200);
+		enemy[9].spawn(resolution.x / 2 + 200, resolution.y / 6 * 4, 0, 200);
+		enemy[10].spawn(resolution.x / 2 + 220, resolution.y / 6 * 5, 0, 200);
 
-		enemy[11].spawn(resolution.x / 2 + 250, resolution.y / 5 * 1, 1, 100);
-		enemy[12].spawn(resolution.x / 2 + 250, resolution.y / 5 * 2, 1, 100);
-		enemy[13].spawn(resolution.x / 2 + 250, resolution.y / 5 * 3, 1, 100);
-		enemy[14].spawn(resolution.x / 2 + 250, resolution.y / 5 * 4, 1, 100);
+		enemy[11].spawn(resolution.x / 2 + 250, resolution.y / 5 * 1, 1, 300);
+		enemy[12].spawn(resolution.x / 2 + 250, resolution.y / 5 * 2, 1, 300);
+		enemy[13].spawn(resolution.x / 2 + 250, resolution.y / 5 * 3, 1, 300);
+		enemy[14].spawn(resolution.x / 2 + 250, resolution.y / 5 * 4, 1, 300);
 
-		enemy[15].spawn(resolution.x / 2 + 330, resolution.y / 4 * 1, 2, 100);
-		enemy[16].spawn(resolution.x / 2 + 330, resolution.y / 4 * 2, 2, 100);
-		enemy[17].spawn(resolution.x / 2 + 330, resolution.y / 4 * 3, 2, 100);
+		enemy[15].spawn(resolution.x / 2 + 330, resolution.y / 4 * 1, 2, 400);
+		enemy[16].spawn(resolution.x / 2 + 330, resolution.y / 4 * 2, 2, 350);
+		enemy[17].spawn(resolution.x / 2 + 330, resolution.y / 4 * 3, 2, 400);
 	}
 
 
@@ -93,7 +93,7 @@ public:
 				enemy[i]++;
 				if (enemy[i].lastShootGreaterThanInterval()) {
 
-					enemyArrow[enemyCurrentArrow].setArrowspeed(300);
+					enemyArrow[enemyCurrentArrow].setArrowspeed(350);
 					shootLinear(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow);
 				}
 			}
@@ -106,7 +106,7 @@ public:
 				enemy[i]++;
 				if (enemy[i].lastShootGreaterThanInterval()) {
 
-					enemyArrow[enemyCurrentArrow].setArrowspeed(500);
+					enemyArrow[enemyCurrentArrow].setArrowspeed(550);
 					shootTowardsPlayer(enemy[i], numEnemies, enemyCurrentArrow, enemyArrow, player);
 				}
 			}
@@ -116,7 +116,7 @@ public:
 	}
 
 	void setPlayerHealth(Player& player) {
-		player.setMaxHealth(350);
+		player.setMaxHealth(300);
 	}
 
 	int run()
