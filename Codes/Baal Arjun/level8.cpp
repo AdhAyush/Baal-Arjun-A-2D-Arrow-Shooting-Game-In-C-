@@ -52,9 +52,7 @@ public:
 				continue;
 			}
 			enemy[i].updateLinear(elapsedTime, 600);
-			enemyHealth[i].setSize(Vector2f(enemy[i].getHealth() / enemy[i].getMaxHealth() * 20, 3));
-			enemyHealth[i].setPosition(enemy[i].getCenter().x, enemy[i].getCenter().y - 10);
-			enemyHealth[i].setFillColor(Color::Red);
+			updateEnemyHealthBar(enemy[i], enemyHealth[i]);
 
 		}
 
@@ -65,9 +63,7 @@ public:
 			enemy[i].updateLinear(elapsedTime, 800);
 			// 
 			//no need to check the if enemy is alive or not because this enemy can't move in this level
-			enemyHealth[i].setSize(Vector2f(enemy[i].getHealth() / enemy[i].getMaxHealth() * 20, 3));
-			enemyHealth[i].setPosition(enemy[i].getCenter().x, enemy[i].getCenter().y - 10);
-			enemyHealth[i].setFillColor(Color::Red);
+			updateEnemyHealthBar(enemy[i], enemyHealth[i]);
 		}
 		if(enemy[11].isAlive())
 			enemy[11].updateVertical(elapsedTime, resolution.y / 2, 0);
@@ -76,9 +72,7 @@ public:
 			enemy[12].updateVertical(elapsedTime, resolution.y, resolution.y / 2);
 
 		for (int i = 11; i < 13; i++) {
-			enemyHealth[i].setSize(Vector2f(enemy[i].getHealth() / enemy[i].getMaxHealth() * 20, 3));
-			enemyHealth[i].setPosition(enemy[i].getCenter().x, enemy[i].getCenter().y - 10);
-			enemyHealth[i].setFillColor(Color::Red);
+			updateEnemyHealthBar(enemy[i], enemyHealth[i]);
 		}
 
 

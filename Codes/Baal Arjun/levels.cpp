@@ -57,20 +57,20 @@ Levels::Levels() {
 	outline.setOutlineThickness(3);
 	outline.setPosition(Vector2f(resolution.x / 20, resolution.y / 20 + 55));
 
-	gameOverString << " \t\t\t\t\t\t\tYOU LOSE\n\npress enter to continue...";
+	gameOverString << " \t\t\t\t\t\t\tYOU LOSE\n\n";
 
 	gameOverText.setFont(font1);
 	gameOverText.setCharacterSize(60);
-	gameOverText.setFillColor(Color::Cyan);
+	gameOverText.setFillColor(Color::Red);
 	gameOverText.setPosition(resolution.x / 2 - 500, resolution.y / 2- 70);
 
 
 
-	gameWonString << "\t\t\t\t\t\t\tYOU WON\n\npress enter to continue...";
+	gameWonString << "\t\t\t\t\t\t\tYOU WON\n\n";
 
 	gameWonText.setFont(font1);
 	gameWonText.setCharacterSize(60);
-	gameWonText.setFillColor(Color::Cyan);
+	gameWonText.setFillColor(Color::Red);
 	gameWonText.setPosition(resolution.x / 2-500, resolution.y / 2-70);
 
 	gameWonText.setString(gameWonString.str());
@@ -333,7 +333,7 @@ int Levels::run(int num)
 			//game starts here
 			if (state == State::PLAYING)
 			{
-				warIntro.setVolume(10);
+				warIntro.setVolume(30);
 				warIntro.setLoop(true);
 				warIntro.play();
 

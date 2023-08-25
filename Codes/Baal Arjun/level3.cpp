@@ -36,12 +36,17 @@ public:
 		void update(Enemy* enemy, RectangleShape* enemyHealth, int numEnemies, Vector2f resolution, Vector2f playerPosition, float elapsedTime)
 		{
 			if (enemy[0].isAlive())
-				enemy[0].updateVerticalandRotate(elapsedTime, resolution.y, 0);
+			{
 			
+				enemy[0].updateVerticalandRotate(elapsedTime, resolution.y, 0);
+				updateEnemyHealthBar(enemy[0], enemyHealth[0]);
+			}
 			if (enemy[1].isAlive())
+			{
+				updateEnemyHealthBar(enemy[1], enemyHealth[1]);
 				enemy[1].updateVerticalandRotate(elapsedTime, resolution.y, 0);
-
-
+			}
+			
 		}
 
 		void setPlayerHealth(Player& player) {
@@ -83,11 +88,11 @@ public:
 
 	int run()
 	{	
-		enemy = new Enemy[5];
-		enemyHealth = new RectangleShape[5];
+		enemy = new Enemy[2];
+		enemyHealth = new RectangleShape[2];
 		
 		int temp;
-		temp = Levels::run(5);
+		temp = Levels::run(2);
 		return temp;
 	}
 };
