@@ -1,4 +1,4 @@
-# Baal-Arjun-A-2D-Arrow-Shooting-Game-In-C-
+# Baal-Arjun-A-2D-Arrow-Shooting-Game-In-C++
 
 To build this Project you will need SFML Library. For more information, go to the official SFML website and follow the instructions.
 https://www.sfml-dev.org/
